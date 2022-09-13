@@ -10,3 +10,6 @@ https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-deco
 
 # django basic
 https://github.com/rg3915/tutoriais/tree/master/django-basic
+
+# bootstrap
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
