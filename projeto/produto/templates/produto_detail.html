@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<a href="{% url 'produto:produto_list' %}">
+    <button type="button" class="btn btn-outline-primary">
+        <span class="fa-solid fa-arrow-left-to-line"></span>
+        Voltar
+    </button>
+</a>
+<hr>
+<h1>{{ object }}
+    <span class="pull-right">
+        <a href="">
+            <button type="button" class="btn btn-outline-success btn-sm me-md-2">
+                <span class="fa-solid fa-pen-to-square"></span>
+                Editar
+            </button>
+        </a>
+    </span>
+</h1>
+<div class="col-sm-6">
+    <table class="table table-user-information">
+        <tbody>
+            <tr>
+                <th class="text-right">Importado</th>
+                <td>
+                    {% if object.importado %}
+                        <i class="fa-solid fa-circle-check ok"></i>
+                    {% else %}
+                        <i class="fa-solid fa-circle-minus no"></i>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th class="text-right">NCM</th>
+                <td>{{ object.ncm }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Preço</th>
+                <td>R$ {{ object.preco }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Estoque</th>
+                <td>{{ object.estoque }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">Estoque Mínimo</th>
+                <td>{{ object.estoque_minimo }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
