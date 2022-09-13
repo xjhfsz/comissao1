@@ -1,5 +1,5 @@
 from django.db import models
-
+#
 class Produto(models.Model):
     importado = models.BooleanField(default=False)
     ncm = models.CharField('NCM', max_length=8)
