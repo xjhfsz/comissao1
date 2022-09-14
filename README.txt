@@ -19,3 +19,6 @@ https://github.com/jazzband/django-widget-tweaks
 
 # fontawesome
 https://fontawesome.com/icons
+
+# class based views
+http://ccbv.co.uk/
