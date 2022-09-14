@@ -13,3 +13,9 @@ https://github.com/rg3915/tutoriais/tree/master/django-basic
 
 # bootstrap
 https://getbootstrap.com/docs/5.0/getting-started/introduction/
+
+# django widget tweaks
+https://github.com/jazzband/django-widget-tweaks
+
+# fontawesome
+https://fontawesome.com/icons

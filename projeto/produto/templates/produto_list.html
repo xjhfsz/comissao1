@@ -2,7 +2,24 @@
 
 {% block content %}
 <div class="page-header">
-    <h2><i class="fa-solid fa-file"></i> Lista de Produtos</h2>
+    <div class="container text-center">
+        <br>
+        <div class="row">
+            <div class="col">
+                <h2><i class="fa-solid fa-file"></i> Lista de Produtos</h2>
+            </div>
+            <div class="col">
+                <span class="pull-right">
+                    <a href="{% url 'produto:produto_add' %}">
+                        <button type="button" class="btn btn-primary">
+                            <span><i class="fa-solid fa-file-circle-plus"></i></span> Adicionar produto
+                        </button>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <br>
     {% if object_list %}
     <table class="table table-striped">
         <thead>
