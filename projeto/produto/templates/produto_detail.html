@@ -12,7 +12,7 @@
 
 <h1>{{ object }}
     <span class="pull-right">
-        <a href="">
+        <a href="{% url 'produto:produto_edit' object.pk  %}">
             <button type="button" class="btn btn-outline-success btn-sm me-md-2">
                 <span class="fa-solid fa-pen-to-square"></span>
                 Editar
