@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container text-center">
+<br>
+    <div class="row">
+        <div class="col">
+            <h2><i class="fa-solid fa-file"></i> Estoque de Entrada </h2>
+        </div>
+        <div class="col">
+            <span class="pull-right">
+                <a href="#">
+                    <button type="button" class="btn btn-primary">
+                        <span><i class="fa-solid fa-file-circle-plus"></i></span> Adicionar estoque
+                    </button>
+                </a>
+            </span>
+        </div>
+    </div>
+</div>
+
+{% if objects_list %}
+
+    <table class="table tablle-striped">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>NF</th>
+                <th>Data</th>
+                <th>Funcionários</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td>
+                        <a href="#">{{ object }}</a>
+                    </td>
+                    <td>{{ object.formated }}</td>
+                    <td>{{ object.created }}</td>
+                    <td>{{ object.funcionario.first_name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% else %}
+
+    <p class="alert alert-warnning">Sem itens na lista</p>
+
+{% endif %}
+
+{% endblock content %}
