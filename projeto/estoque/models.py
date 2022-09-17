@@ -19,7 +19,7 @@ class Estoque(TimeStampedModel):
 
     def __str__(self):
         time = self.created.strftime('%d/%m/%Y')
-        return f'{self.pk} - {self.nf} - {time}'
+        return f'{self.pk} - {self.nf_formated()} - {time}'
 
     def get_absolute_url(self):
         return reverse_lazy('estoque:estoque_entrada_detail', kwargs={'pk': self.pk})
