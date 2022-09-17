@@ -17,7 +17,8 @@ class Estoque(TimeStampedModel):
         ordering = ('-created',)
 
     def __str__(self):
-        return f'{self.pk} - {self.nf} - {self.created.strftime():%d/%m/%Y}'
+        return '{} - {} - {}'.format(self.pk, self.nf, self.created.strftime('%d-%m-%Y'))
+        # return f'{self.pk} - {self.nf} - {self.created.strftime():%d/%m/%Y}'
 
     def nf_formated(self):
         return str(self.nf).zfill(4)
