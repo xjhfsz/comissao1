@@ -19,6 +19,8 @@
         </div>
     </div>
 </div>
+<br>
+<br>
 
 {% if object_list %}
 
@@ -35,9 +37,9 @@
             {% for object in object_list %}
                 <tr>
                     <td>
-                        <a href="#">{{ object }}</a>
+                        <a href="{{ object.get_absolute_url }}">{{ object }}</a>
                     </td>
-                    <td>{{ object.formated }}</td>
+                    <td>{{ object.nf_formated }}</td>
                     <td>{{ object.created }}</td>
                     <td>{{ object.funcionario.first_name }}</td>
                 </tr>
