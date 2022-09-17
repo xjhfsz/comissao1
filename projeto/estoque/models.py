@@ -5,8 +5,8 @@ from projeto.core.models import TimeStampedModel
 from projeto.produto.models import Produto
 
 MOVIMENTO = (
-    ('e', 'entrada'),
-    ('s', 'saída')
+    ('e', 'Entrada'),
+    ('s', 'Saída')
 )
 
 class Estoque(TimeStampedModel):
@@ -15,7 +15,7 @@ class Estoque(TimeStampedModel):
     movimento = models.CharField(max_length=1, choices=MOVIMENTO)
 
     class Meta:
-        ordering = ('-created',)
+        ordering = ('created',)
 
     def __str__(self):
         time = self.created.strftime('%d/%m/%Y')
