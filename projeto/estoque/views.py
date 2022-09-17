@@ -6,4 +6,4 @@ def estoque_entrada_list(request):
     template_name = 'estoque_entrada_list.html'
     objects = Estoque.objects.filter(movimento='e')
     context = {'object_list': objects}
-    render(request, template_name, context)
+    return render(request, template_name, context)
