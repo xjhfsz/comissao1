@@ -23,4 +23,8 @@ https://fontawesome.com/icons
 # class based views
 http://ccbv.co.uk/
 
-teste
+# inlineformset_factory
+https://felipefrizzo.github.io/post/form-inline/
+
+# inlineformset_factory cbv
+https://felipefrizzo.github.io/post/form-inline-cbv/

@@ -13,3 +13,7 @@ def estoque_entrada_detail(request, pk):
     obj = Estoque.objects.get(pk=pk)
     context = {'object': obj}
     return render(request, template_name, context)
+
+def estoque_entrada_add(request):
+    template_name = 'estoque_entrada_form.html'
+    return render(request, template_name)
