@@ -28,3 +28,6 @@ https://felipefrizzo.github.io/post/form-inline/
 
 # inlineformset_factory cbv
 https://felipefrizzo.github.io/post/form-inline-cbv/
+
+# django bootstrap form
+https://django-bootstrap-form.readthedocs.io/en/latest/
