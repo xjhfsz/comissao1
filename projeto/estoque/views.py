@@ -19,7 +19,7 @@ def estoque_entrada_detail(request, pk):
 
 def estoque_entrada_add(request):
     template_name = 'estoque_entrada_form.html'
-    estoque_form = EstoqueForm
+    estoque_form = Estoque()
     item_estoque_formset = inlineformset_factory(
         Estoque,
         EstoqueItens,
