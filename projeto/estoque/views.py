@@ -46,7 +46,8 @@ def estoque_entrada_add(request):
             url = 'estoque:estoque_entrada_detaiil'
             return HttpResponseRedirect(resolve_url(url, form.pk))
     else:
+        ''''''
         form = EstoqueForm(instance=estoque_form, prefix='main')
         formset = item_estoque_formset(instance=estoque_form, prefix= 'estoque')
-    context = {'form': form, 'formset': formset}
-    return render(request, template_name, context)
+        context = {'form': form, 'formset': formset}
+        return render(request, template_name, context)
