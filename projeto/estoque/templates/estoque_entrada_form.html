@@ -21,18 +21,20 @@
     </button>
 </a>
 <hr>
-<br>
 
 <div class="row">
     <div class="col-sm-6">
         <form method="POST" novalidate>
             {% csrf_token %}
+
+            <!-- Entrada de Estoque -->
             <legend style="border-bottom: 1px solid #e5e5e5">
                 Entrada de Estoque
             </legend>
             {{ formset.management_form }}
+
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     {% for field in form.visible_fields %}
                         <div class="form-group{% if field.errors %} has-error {% endif %}">
                             <label for="{{ field.id_for_label }}">
@@ -51,7 +53,14 @@
                     {% endfor %}
                 </div>
             </div>
-            <!-- -->
+
+            <br>
+            <strong>Adicionar produtos no estoque:</strong>
+            <hr>
+
+            <!-- Entrada de Produto dentro do Estoque -->
+
+            <!-- Comentado
             <div class="row">
                 <div class="col-sm-12">
                     <legend style="border-bottom: 1px solid #e5e5e5">
@@ -66,11 +75,25 @@
                     </div>
                 </div>
             </div>
-            <span id="add-item" class="btn btn-outline-primary" style="margin-top: 15px;">
-                <i class="fa-solid fa-file-circle-plus"></i> Adicionar Produto
-            </span>
-            <div class="row float-right">
-                <div class="col-sm-12" style="margin-top: 25px;">
+            -->
+
+            <!-- Formulário alternativo de Produtos -->
+            {% for form in formset %}
+                {{ form }}
+                <hr>
+            {% endfor %}
+
+
+            <!-- Botão -->
+            <div class="row">
+                <span id="add-item" class="btn btn-outline-primary" style="margin-top: 15px;">
+                    <i class="fa-solid fa-file-circle-plus"></i> Adicionar Produto
+                </span>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6" style="margin-top: 50px;">
                     <div class="form-inline buttons">
                         <button class="btn btn-success" value="Save">
                             <i class="bi bi-file-plus-fill"></i>
