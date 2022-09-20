@@ -2,7 +2,7 @@
 
 {% load widget_tweaks %}
 {% load bootstrap %}
-
+{% load static %}
 {% block css %}
 <style>
     span.required:after {
@@ -79,8 +79,10 @@
 
             <!-- Formulário alternativo de Produtos -->
             {% for form in formset %}
-                {{ form }}
-                <hr>
+                <div class="inlineform">
+                    {{ form }}
+                    <hr>
+                </div>
             {% endfor %}
 
 
@@ -114,22 +116,12 @@
 
 {% block js %}
 
-<script>
-    $(document).ready(function)() {
-        $('#add-item').click(function(ev) {
-            ev.preventDefault();
-            var count = $('#estoque').children().lenght;
-            var tmmplMarkup = $('#item-estoque').html();
-            var compiledTmpl = tmplMarkup.replace(/__prefix/g, count);
-            $('div#estoque').append(compiledTmpl);
+<script type="text/javascript">
+    $(function() {
+        $('#.inlineform').formset({
+            prefix: '{{ formset.prefix }}'
         });
-    });
-</script>
-
-<script type="text/html" id="item-estoque">
-    <div id="item-__prefix__" class="form-group" style="margin-top: 15px;">
-        {{ formset.empty_form|bootstrap }}
-    </div>
+    })
 </script>
 
 {% endblock js%}
