@@ -26,13 +26,9 @@
     <div class="col-sm-6">
         <form method="POST" novalidate>
             {% csrf_token %}
-
-            <!-- Entrada de Estoque -->
-            <legend style="border-bottom: 1px solid #e5e5e5">
-                Entrada de Estoque
-            </legend>
             {{ formset.management_form }}
-
+            <!-- Entrada de Estoque -->
+            <legend style="border-bottom: 1px solid #e5e5e5">Entrada de Estoque</legend>
             <div class="row">
                 <div class="col-sm-12">
                     {% for field in form.visible_fields %}
@@ -53,8 +49,8 @@
                     {% endfor %}
                 </div>
             </div>
-
             <br>
+
             <strong>Adicionar produtos no estoque:</strong>
             <hr>
 
