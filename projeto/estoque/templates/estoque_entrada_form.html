@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-
 {% load widget_tweaks %}
 {% load bootstrap %}
 {% load static %}
+
 {% block css %}
 <style>
     span.required:after {
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     {% for field in form.visible_fields %}
-                        <div class="form-group{% if field.errors %} has-error {% endif %}">
+                        <div class="form-group">
                             <label for="{{ field.id_for_label }}">
                                 {% if field.field.required %}
                                     <span class="required">{{ field.label }}</span>
@@ -44,7 +44,7 @@
                                     {{ field.label }}
                                 {% endif %}
                             </label>
-                                {% render_field field class="form-control" %}
+                            {% render_field field class="form-control" %}
                             <br>
                             {% for error in field.errors %}
                                 <span class="text-muted">{{ error }}</span>
