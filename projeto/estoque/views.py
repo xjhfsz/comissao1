@@ -36,6 +36,9 @@ def estoque_entrada_add(request):
             formset.save()
             url = 'estoque:estoque_entrada_detail'
             return HttpResponseRedirect(reverse(url, args=(form.pk,)))
+        else:
+            context = {'form': form, 'formset': formset}
+            return render(request, template_name, context)
     else:
         form = EstoqueForm()
         item_estoque_formset = inlineformset_factory(
