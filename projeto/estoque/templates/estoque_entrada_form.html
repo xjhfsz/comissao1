@@ -29,7 +29,6 @@
     <div class="col-sm-6">
         <form method="POST" novalidate>
             {% csrf_token %}
-            {{ formset.management_form }}
             <!-- Entrada de Estoque -->
             <legend class="legend">Entrada de Estoque</legend>
             <hr>
@@ -51,6 +50,7 @@
                             {% endfor %}
                         </div>
                     {% endfor %}
+                    {{ formset.management_form }}
                 </div>
             </div>
             <br>
