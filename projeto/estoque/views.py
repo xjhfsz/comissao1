@@ -50,3 +50,15 @@ def estoque_entrada_add(request):
         formset = item_estoque_formset()
         context = {'form': form, 'formset': formset}
         return render(request, template_name, context)
+
+def produto_preco(request):
+    template_name = 'hx/produto_preco_hx.html'
+    url = request.get_full_path()
+    print('url', url)
+    print(url.split('-'))
+    item = url.split('-')[1]
+    produto_pk = list(request.GET.values())[0]
+    produto = Product.objects.get(pk=produto_pk)
+
+    context = {'produto': produto, 'item': item[0]}
+    return render(request, template_name, context)

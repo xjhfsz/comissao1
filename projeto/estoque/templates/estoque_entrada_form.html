@@ -57,9 +57,43 @@
             <br>
 
             <!-- Entrada de Produto dentro do Estoque -->
-
+            <!--
             <legend class="legend">Adicionar produtos no estoque:</legend>
+            -->
+
             <hr>
+
+            <!-- Novo método de formulário 25/09/2022 -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <legend class="legend">Adicionar produtos no estoque:</legend>
+                    <div id="estoqueitens" class="form-inline">
+                        {% for form in formset %}
+                            <div id="item-{{ forloop.counter0 }}" class="form-group">
+                                {{ form.estoque }}
+                                {{ form.id }}
+
+                                {{ form.produto.label }}
+                                {% render_field form.produto class="form-control" hx-get="/estoque/produto/preco/" hx-target="#id_items-0-price" hx-swap="outerHTML" %}
+
+                                {{ form.quantidade.label }}
+                                {{ form.quantidade }}
+
+                                {{ form.saldo.label }}
+                                {{ form.saldo }}
+
+                                {% if form.id.value %}
+                                    <span>a</span>
+                                {% endif %}
+
+
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
 
             <!-- Comentado
             <div class="row">
@@ -78,14 +112,14 @@
             </div>
             -->
 
-            <!-- Formulário alternativo de Produtos -->
+            <!-- Formulário alternativo de Produtos
             {% for form in formset %}
                 <div class="inlineform">
                     {{ form }}
                     <hr>
                 </div>
             {% endfor %}
-
+            -->
 
             <!-- Botão -->
             <div class="row">
