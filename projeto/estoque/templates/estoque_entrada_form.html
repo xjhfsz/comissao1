@@ -38,7 +38,7 @@
             {% csrf_token %}
             <!-- Entrada de Estoque -->
             <legend class="legend">Entrada de Estoque</legend>
-            <hr>
+
             <div class="row">
                 <div class="col-sm-12">
                     {% for field in form.visible_fields %}
@@ -50,8 +50,10 @@
                                     {{ field.label }}
                                 {% endif %}
                             </label>
+
                             {% render_field field class="form-control" %}
                             <br>
+
                             {% for error in field.errors %}
                                 <span class="text-muted">{{ error }}</span>
                             {% endfor %}
@@ -60,7 +62,7 @@
                     {{ formset.management_form }}
                 </div>
             </div>
-            <br>
+
 
             <!-- Entrada de Produto dentro do Estoque -->
             <!--
@@ -72,31 +74,43 @@
             <!-- Novo método de formulário 25/09/2022 -->
             <div class="row">
                 <div class="col-sm-12">
+
                     <legend class="legend">Adicionar produtos no estoque:</legend>
+
                     <div id="estoqueitens" class="form-inline">
                         {% for form in formset %}
                             <div id="item-{{ forloop.counter0 }}" class="form-group">
+                                {% render_field form.estoque data-field='estoque' %}
                                 {{ form.estoque }}
                                 {{ form.id }}
 
                                 {{ form.produto.label }}
-                                {% render_field form.produto class="form-control" hx-get="/estoque/produto/preco/" hx-target="#id_items-0-price" hx-swap="outerHTML" %}
+                                {% render_field form.produto class="form-control" hx-get="/estoque/produto/preco/" hx-target="#id_price" hx-swap="outerHTML" data-field='product'%}
 
                                 {{ form.quantidade.label }}
-                                {{ form.quantidade }}
+                                {% render_field form.quantidade class="form-control" data-field='quantidade' %}
 
                                 {{ form.saldo.label }}
-                                {{ form.saldo }}
+                                {% render_field form.saldo class="form-control" data-field='saldo' %}
 
                                 {% if form.id.value %}
-                                    <span>a</span>
+                                    <span
+                                      class="span-is-link no ml-2 remove-row"
+                                      hx-delete="{% url 'ecommerce:order_item_delete' order_item_form.id.value %}"
+                                      hx-confirm="Deseja mesmo deletar o item {{order_item_form.id.value}}?"
+                                      hx-target="#item-{{ forloop.counter0 }}"
+                                      hx-swap="outerHTML"
+                                    >
+                                      <i class="fa fa-times fa-lg"></i>
+                                    </span>
+                                {% else %}
+                                    <span class="span-is-link no ml-2" onclick="removeRow()">
+                                      <i class="fa fa-times fa-lg"></i>
+                                    </span>
                                 {% endif %}
-
-
                             </div>
                         {% endfor %}
                     </div>
-
                 </div>
             </div>
 
@@ -129,10 +143,20 @@
 
             <!-- Botão -->
             <div class="row">
-                <span id="add-item" class="btn btn-outline-primary" style="margin-top: 15px;">
-                    <i class="fa-solid fa-file-circle-plus"></i> Adicionar Produto
+                <span
+                    id="add-item"
+                    class="btn btn-outline-primary"
+                    style="margin-top: 20px;"
+                    hx-get="{% url 'estoque:add_row_estoque_items_hx' %}"
+                    hx-target="#estoqueitens"
+                    hx-swap="beforeend"
+                >
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                    Adicionar Produto
                 </span>
             </div>
+
+
 <div class="row">
     <div class="col-sm-6" style="margin-top: 50px;">
         <div class="form-inline buttons">

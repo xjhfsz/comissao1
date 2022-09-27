@@ -62,3 +62,9 @@ def produto_preco(request):
 
     context = {'produto': produto, 'item': item[0]}
     return render(request, template_name, context)
+
+def add_row_estoque_items_hx(request):
+    template_name = 'hx/row_estoque_items_hx.html'
+    form = EstoqueItensForm()
+    context = {'form': form}
+    return render(request, template_name, context)

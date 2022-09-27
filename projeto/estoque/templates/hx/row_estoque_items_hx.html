@@ -1,0 +1,22 @@
+{% load widget_tweaks %}
+
+<div id="item-{{ forloop.counter0 }}" class="form-group">
+
+  <div class="form-group">
+    <hr>
+
+    <label>{{ form.produto.label }}</label>
+    {% render_field form.produto class="form-control" hx-get="/estoque/produto/preco/" hx-target="#id_preco" hx-swap="outerHTML" data-field='produto' %}
+
+    <label>{{ form.quantidade.label }}</label>
+    {% render_field form.quantidade class="form-control" data-field='quantidade' %}
+
+    <label>{{ form.saldo.label }}</label>
+    {% render_field form.saldo class="form-control" data-field='saldo' %}
+  </div>
+
+  <span class="span-is-link no ml-2" onclick="removeRow()">
+    <i class="fa fa-times fa-lg"></i>
+  </span>
+
+</div>
