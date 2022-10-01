@@ -85,7 +85,7 @@
                                 {{ form.id }}
 
                                 {{ form.produto.label }}
-                                {% render_field form.produto class="form-control" hx-get="/estoque/produto/preco/" hx-target="#id_price" hx-swap="outerHTML" data-field='product'%}
+                                {% render_field form.produto class="form-control" hx-get="/estoque/produto/preco/" hx-target="#id_price" hx-swap="outerHTML" data-field='produto'%}
 
                                 {{ form.quantidade.label }}
                                 {% render_field form.quantidade class="form-control" data-field='quantidade' %}
